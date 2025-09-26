@@ -41,8 +41,6 @@ def play_game_again():
     is_game_over = False
     user_score= -1
     computer_score= -1
-
-
     for _ in range(2):
         user_cards.append(deal_card())
         computer_cards.append(deal_card())
@@ -53,23 +51,3 @@ def play_game_again():
         print(f"your cards{user_cards} , current score {user_score}")
         print(f"computer's first card :{computer_cards[0]}")
 
-        if user_score == 0 or computer_score == 0 or user_score > 21:
-            is_game_over = True
-        else:
-            user_should_deal= input("Type 'y' to get another card and type 'n' to pass\n")
-            if user_should_deal == "y":
-                user_cards.append(deal_card())
-            else:
-                is_game_over= True
-    while computer_score != 0 and computer_score < 17:
-        computer_cards.append(deal_card())
-        computer_score = calculate_score(computer_cards)
-
-    print(f"your final score is:{user_score} and final cards are {user_cards}")
-    print(f"computer final score is {computer_score} and the final cards for computer is {computer_cards} ")
-    print(compare(user_score, computer_score))
-
-
-while input("Do you want to play the game again? Type 'y' to play and  'n' to pass\n") == "y":
-   print("\n" *20)
-   play_game_again()
